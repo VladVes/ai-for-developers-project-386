@@ -10,39 +10,53 @@ model EventType {
   name: string;
   description: string;
   durationMinutes: int32;
-  bookings: Booking[];
+
+  /** Идентификаторы бронирований данного типа события */
+  bookingIds: string[];
 }
 
 model Event {
   id: string;
-  type: EventType;
+  typeId: string;
   name: string;
   description: string;
 }
 
 model Booking {
   id: string;
-  type: EventType;
-  slots: TimeSlot[];
-  guest: CalendarGuest;
+
+  /** Идентификатор типа события */
+  typeId: string;
+
+  /** Идентификаторы временных слотов */
+  slotIds: string[];
+
+  /** Идентификатор гостя */
+  guestId: string;
 }
 
 model CalendarOwner {
   name: string;
-  types: EventType[];
+
+  /** Идентификаторы типов событий владельца */
+  typeIds: string[];
 }
 
 model CalendarGuest {
   id: string;
   name: string = "guest";
-  bookings: Booking[];
+
+  /** Идентификаторы бронирований гостя */
+  bookingIds: string[];
 }
 
 model TimeSlot {
   id: string;
   available: boolean = true;
   minDurationMinutes: int32 = 15;
-  booking: Booking;
+
+  /** Идентификатор бронирования, к которому относится слот */
+  bookingId: string;
 }
 
 model BookingCreateRequest {
