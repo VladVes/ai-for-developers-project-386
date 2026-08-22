@@ -18,6 +18,9 @@ export function AdminPage() {
           <Button component={Link} to="/admin/events" size="md">
             Типы событий
           </Button>
+          <Button component={Link} to="/admin/bookings" size="md">
+            Бронирования
+          </Button>
           <Button component={Link} to="/" variant="light" size="md">
             На главную
           </Button>

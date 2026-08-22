@@ -1,4 +1,4 @@
-import { Button, Container, Stack, Text, Title } from '@mantine/core';
+import { Button, Container, Group, Stack, Text, Title } from '@mantine/core';
 import { Link } from 'react-router-dom';
 
 export function HomePage() {
@@ -14,9 +14,14 @@ export function HomePage() {
           Управляйте типами событий и расписанием в одном месте.
         </Text>
 
-        <Button component={Link} to="/admin" size="md">
-          Войти в админку
-        </Button>
+        <Group justify="center" gap="sm">
+          <Button component={Link} to="/admin" size="md">
+            Войти в админку
+          </Button>
+          <Button component={Link} to="/graphboard" variant="light" size="md">
+            Графическая доска
+          </Button>
+        </Group>
       </Stack>
     </Container>
   );

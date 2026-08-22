@@ -15,3 +15,15 @@ export interface EventTypeInput {
   description: string;
   durationMinutes: number;
 }
+
+// Бронирование с денормализованным типом события (см. main.tsp).
+// startDateTime / endDateTime — ISO-строки формата date-time (UTC).
+export interface Booking {
+  id: string;
+  typeId: string;
+  slotIds: string[];
+  eventType: EventType;
+  guestId: string;
+  startDateTime: string;
+  endDateTime: string;
+}
